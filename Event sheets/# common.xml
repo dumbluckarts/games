@@ -22,11 +22,23 @@
                         </action>
                         <action id="6" name="Call function" sid="507476188765690" type="JS">
                             <param id="0" name="Expression">&quot;dialogue.text&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;test&quot;{###}0.1</param>
+                            <param id="1" name="Parameter {n}">&quot;test&quot;{###}200</param>
                         </action>
-                        <action id="6" name="Call function" sid="228385892879576" type="JS">
+                        <action id="6" name="Call function" sid="252555657778877" type="JS">
                             <param id="0" name="Expression">&quot;dialogue.wait&quot;</param>
-                            <param id="1" name="Parameter {n}">2</param>
+                            <param id="1" name="Parameter {n}">1000</param>
+                        </action>
+                        <action id="6" name="Call function" sid="430083399260954" type="JS">
+                            <param id="0" name="Expression">&quot;dialogue.newline&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="6" name="Call function" sid="418520714705142" type="JS">
+                            <param id="0" name="Expression">&quot;dialogue.text&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;another test&quot;{###}50</param>
+                        </action>
+                        <action id="6" name="Call function" sid="260726401369040" type="JS">
+                            <param id="0" name="Expression">&quot;dialogue.clear&quot;</param>
+                            <param id="1" name="Parameter {n}">3000</param>
                         </action>
                         <action id="6" name="Call function" sid="177565853566149" type="JS">
                             <param id="0" name="Expression">&quot;dialogue.start&quot;</param>
@@ -43,20 +55,6 @@
                         <action id="0" name="Set text" sid="835827073970998" type="Text">
                             <param id="0" name="Text">JS.Value(&quot;dialogue.string&quot;)</param>
                         </action>
-                    </actions>
-                </event-block>
-                <comment>check to see if dialogue is done, if so, destroy it&#x0D;&#x0A;YOU COULD JUST USE dialogue.clear() THOUGH!</comment>
-                <event-block sid="744456754544355">
-                    <conditions>
-                        <condition id="1" name="Compare JS code Completion value" sid="329141386799521" type="JS">
-                            <param id="0" name="Value">1</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="JS code">&quot;dialogue.DONE&quot;</param>
-                            <param id="3" name="Parameter {n}"></param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="192975546065856" type="Text" />
                     </actions>
                 </event-block>
             </sub-events>

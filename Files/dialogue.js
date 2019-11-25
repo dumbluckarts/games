@@ -1,63 +1,50 @@
-var Message_Event = (function (options) {
 
-    var message = options.text
-    var period = options.period * 1000
-    var call = options.call
-    var finished = options.finished
-
-    if (!message
-        || !call
-        || !finished)
-        return console.error("Message function must contain the properties: text, period, call, and finished.")
-
-    if (!period)
-        period = 0
-
-    var chars = message.split('')
-    var offset = period
-    var result = ""
-
-    function build() {
-        for (const i of chars) {
-            setTimeout(() => {
-                result += i
-                call(i, result)
-            }, offset)
-
-            offset += period;
-        }
-
-        setTimeout(() => {
-            finished(result, offset / 1000)
-        }, offset);
-    }
-
+var Event = (function () {
     return {
-        result,
-        build
+        Generic(options) {
+            var text = options.text
+            var period = options.period
+            var finished = options.finished
+
+            if (!text || !finished) return;
+            if (!period) period = 0
+            function exec() {
+                setTimeout(() => {
+                    finished(period)
+                }, period)
+            }
+            return { text, period, exec }
+        },
+        Message(options) {
+            var text = options.text
+            var period = options.period
+            var call = options.call
+            var finished = options.finished
+
+            if (!text || !call || !finished) return;
+            if (!period) period = 0
+
+            var chars = text.split('')
+            var offset = period
+            var result = ""
+
+            function build() {
+                for (const char of chars) {
+                    setTimeout(() => {
+                        result += char
+                        call(char, result)
+                    }, offset)
+                    offset += period
+                }
+                setTimeout(() => {
+                    finished(result, offset)
+                }, offset -= period)
+            }
+
+            return { text, period, result, build }
+        }
     }
-})
-
-var Generic_Event = (function (options) {
-    var text = options.text
-    var period = options.period * 1000
-    var finished = options.finished
-
-    if (!text
-        || !finished)
-        return console.error("Wait function must contain the properties: text, period, and finished");
-
-    if (!period)
-        period = 0
-
-    function exec() {
-        setTimeout(() => {
-            finished(period / 1000)
-        }, period)
-    }
-
-    return { exec }
-})
+})()
 
 var dialogue = (function () {
     var buffer = []
@@ -69,10 +56,10 @@ var dialogue = (function () {
     }
 
     data.wait = function (p) {
-        buffer.push(Generic_Event({
+        buffer.push(Event.Generic({
             text: 'wait',
             period: p,
-            finished(elapsed) {
+            finished() {
                 buffer.shift()
                 data.run()
             }
@@ -83,13 +70,13 @@ var dialogue = (function () {
     data.sleep = data.wait
 
     data.append = function (m, p = 0.0) {
-        buffer.push(Message_Event({
+        buffer.push(Event.Message({
             text: m,
             period: p,
-            call(char, result) {
+            call(char) {
                 data.string += char
             },
-            finished(result, elapsed) {
+            finished() {
                 buffer.shift()
                 data.run()
             }
@@ -101,10 +88,10 @@ var dialogue = (function () {
     data.scroll = data.append
 
     data.clear = function (p = 0.0) {
-        buffer.push(Generic_Event({
+        buffer.push(Event.Generic({
             text: 'clear',
             period: p,
-            finished(elapsed) {
+            finished() {
                 data.string = ""
                 buffer.shift()
                 data.run()
@@ -114,24 +101,32 @@ var dialogue = (function () {
         return data
     }
 
+    data.newline = function () {
+        buffer.push(Event.Generic({
+            text: '\n',
+            period: 0,
+            finished() {
+                data.string += '\n'
+                buffer.shift()
+                data.run()
+            }
+        }))
+    }
+    data.new = data.newline
+
     data.run = function () {
         var ele = buffer[0]
 
         if (buffer.length == 0)
             data.DONE = 1
-
         if (!ele) return
 
-
         // is message event
-        if (ele.hasOwnProperty('build')) {
+        if (ele.hasOwnProperty('build'))
             ele.build()
-        }
-
         // generic event
-        if (ele.hasOwnProperty('exec')) {
+        if (ele.hasOwnProperty('exec'))
             ele.exec()
-        }
     }
 
     data.start = function () {
