@@ -28,7 +28,7 @@ var Message_Event = (function (options) {
         }
 
         setTimeout(() => {
-            finished(result, offset/1000)
+            finished(result, offset / 1000)
         }, offset);
     }
 
@@ -52,7 +52,7 @@ var Generic_Event = (function (options) {
 
     function exec() {
         setTimeout(() => {
-            finished(period/1000)
+            finished(period / 1000)
         }, period)
     }
 
@@ -121,7 +121,7 @@ var dialogue = (function () {
             data.DONE = 1
 
         if (!ele) return
-            
+
 
         // is message event
         if (ele.hasOwnProperty('build')) {

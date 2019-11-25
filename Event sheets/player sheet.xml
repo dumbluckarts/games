@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>player sheet</name>
+    <events>
+        <event-group description="" sid="371926110200734" title="Player">
+            <sub-events>
+                <variable comment="defaults to &apos;idle&apos;" constant="0" name="state" sid="689564431367939" static="1" type="text">idle</variable>
+                <variable comment="defaults to right" constant="0" name="direction" sid="462906768518571" static="1" type="text">right</variable>
+                <event-block sid="523411787782472">
+                    <conditions>
+                        <condition id="0" name="On function" sid="799074950783479" type="Function">
+                            <param id="0" name="Name">&quot;player&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="222785387820683">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="613927433623667" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;get&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="879554842639018">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="415036280488488" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;state&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="254757393469520" type="Function">
+                                            <param id="0" name="Value">state</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="126857701776947">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="220300546493466" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;direction&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="211908249301681" type="Function">
+                                            <param id="0" name="Value">direction</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="408945957415729">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="143806475678852" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;set&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="762658947706607">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="369703250135994" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;state&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="972188413657071" type="System">
+                                            <param id="0" name="Variable">state</param>
+                                            <param id="1" name="Value">Function.Param(2)</param>
+                                        </action>
+                                        <action id="1" name="Set return value" sid="359138535809495" type="Function">
+                                            <param id="0" name="Value">state</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="806252613157449">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="390845628925561" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;direction&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="181720269411862" type="System">
+                                            <param id="0" name="Variable">direction</param>
+                                            <param id="1" name="Value">Function.Param(2)</param>
+                                        </action>
+                                        <action id="1" name="Set return value" sid="699130088223759" type="Function">
+                                            <param id="0" name="Value"> direction</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-group description="" sid="175008429992872" title="player Movement">
+                    <sub-events>
+                        <variable constant="1" name="MAX_SPEED" sid="818172817200878" static="0" type="number">50</variable>
+                        <comment>activate controller if player has one</comment>
+                        <event-block sid="384046977027392">
+                            <conditions>
+                                <condition id="4" name="Has gamepads" sid="834458303748577" type="Gamepad" />
+                                <condition id="-4" name="Trigger once while true" sid="989483788820504" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="763678163034763" type="System">
+                                    <param id="0" name="Group name">&quot;Controller&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>reset max speed when stopped</comment>
+                        <event-block sid="593569746777035">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="370297884979270" type="System">
+                                    <param id="0" name="First value">player.Platform.MaxSpeed</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="1" name="Set max speed" sid="584271507633886" type="player">
+                                    <param id="0" name="Max Speed">MAX_SPEED</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="434613025931311">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="509176804138825" type="System">
+                                    <param id="0" name="First value">player.8Direction.MaxSpeed</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="4" name="Set max speed" sid="721699452590854" type="player">
+                                    <param id="0" name="Max Speed">MAX_SPEED</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-group description="" sid="791314184674087" title="Keyboard">
+                            <sub-events>
+                                <event-block sid="657297291830582">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="183847648781470" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="275588799830671" type="player">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="369649224197522" type="player">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;right&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="481098208244481">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="332192134046714" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="163811811819044" type="player">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="626000653906128" type="player">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;left&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="563546217031007">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="316446679044179" type="Keyboard">
+                                            <param id="0" name="Key">87</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="728347656396897" type="player">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="978322994228689">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="146274355036764" type="Keyboard">
+                                            <param id="0" name="Key">83</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="138757067126299" type="player">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" inactive="1" sid="871755610731341" title="Controller">
+                            <sub-events>
+                                <variable constant="0" name="adjustedSpeed" sid="291905994060651" static="1" type="number">0</variable>
+                                <variable constant="0" name="hspeed" sid="435877417218747" static="1" type="number">0</variable>
+                                <variable constant="0" name="vspeed" sid="489891163345795" static="1" type="number">0</variable>
+                                <event-block sid="677969092300436">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="363275055674311" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="593487461319847" type="System">
+                                            <param id="0" name="Variable">adjustedSpeed</param>
+                                            <param id="1" name="Value">MAX_SPEED/100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>set speed values based on joystick left stick</comment>
+                                <event-block sid="680459450057958">
+                                    <conditions>
+                                        <condition id="-1" name="Every tick" sid="648778056358911" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="252937317066739" type="System">
+                                            <param id="0" name="Variable">hspeed</param>
+                                            <param id="1" name="Value">abs(Gamepad.Axis(0, 0))*adjustedSpeed</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="536968926251666" type="System">
+                                            <param id="0" name="Variable">vspeed</param>
+                                            <param id="1" name="Value">abs(Gamepad.Axis(0,1))*adjustedSpeed</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>set speed if moving</comment>
+                                <event-block any="1" sid="311823173412756">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="491765744793385" type="System">
+                                            <param id="0" name="Variable">hspeed</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="301027367804772" type="System">
+                                            <param id="0" name="Variable">vspeed</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="1" name="Set max speed" sid="434364301069269" type="player">
+                                            <param id="0" name="Max Speed">hspeed</param>
+                                        </action>
+                                        <action behavior="8Direction" id="4" name="Set max speed" sid="356222679929375" type="player">
+                                            <param id="0" name="Max Speed">vspeed</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="765179755384839">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="216471458126574" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="1" name="Set max speed" sid="873916688522718" type="player">
+                                            <param id="0" name="Max Speed">MAX_SPEED</param>
+                                        </action>
+                                        <action behavior="8Direction" id="4" name="Set max speed" sid="271370792597645" type="player">
+                                            <param id="0" name="Max Speed">MAX_SPEED</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>move right</comment>
+                                <event-block sid="169317671138850">
+                                    <conditions>
+                                        <condition id="5" name="Compare axis" sid="535568203992690" type="Gamepad">
+                                            <param id="0" name="Gamepad">0</param>
+                                            <param id="1" name="Axis">0</param>
+                                            <param id="2" name="Comparison">4</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="759548263916824" type="player">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="373044191408472" type="player">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;right&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>move left</comment>
+                                <event-block sid="779490733668696">
+                                    <conditions>
+                                        <condition id="5" name="Compare axis" sid="628624804751987" type="Gamepad">
+                                            <param id="0" name="Gamepad">0</param>
+                                            <param id="1" name="Axis">0</param>
+                                            <param id="2" name="Comparison">2</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="826189897878398" type="player">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="912332600709648" type="player">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;left&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>move up</comment>
+                                <event-block sid="891082979404505">
+                                    <conditions>
+                                        <condition id="5" name="Compare axis" sid="612242254584550" type="Gamepad">
+                                            <param id="0" name="Gamepad">0</param>
+                                            <param id="1" name="Axis">1</param>
+                                            <param id="2" name="Comparison">2</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="299001076964727" type="player">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>move down</comment>
+                                <event-block sid="465415789754666">
+                                    <conditions>
+                                        <condition id="5" name="Compare axis" sid="857495888747668" type="Gamepad">
+                                            <param id="0" name="Gamepad">0</param>
+                                            <param id="1" name="Axis">1</param>
+                                            <param id="2" name="Comparison">4</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="231106843250525" type="player">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="929070509706296" title="player Animation">
+                    <sub-events>
+                        <event-block sid="839841879812513">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" name="Is moving" sid="956668980077667" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="583618370083858" type="player">
+                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="659568759239573" type="player">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">&quot;walking&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="237006169819123">
+                                    <conditions>
+                                        <condition behavior="Platform" id="0" name="Is moving" sid="927234349054082" type="player" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="538737554267472" type="player">
+                                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="538164988805556">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="376208453451744" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="431087320518649" type="player">
+                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="890086783099693" type="player">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">&quot;walking&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="126211544455700">
+                                    <conditions>
+                                        <condition behavior="8Direction" id="0" name="Is moving" sid="203113365613554" type="player" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="168503769825187" type="player">
+                                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="720077962517007">
+                            <conditions>
+                                <condition behavior="8Direction" id="1" name="Compare speed" sid="397859690359134" type="player">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Speed">0</param>
+                                </condition>
+                                <condition behavior="Platform" id="1" name="Compare speed" sid="179385561774035" type="player">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Speed">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="417512365844781" type="player">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="911889101997056" type="player">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">&quot;idle&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="241557384039735">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="391767416658976" type="player">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="315788655448004" type="player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="409971570605956">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="759405369212101" type="player">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;left&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="166980148607288" type="player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
