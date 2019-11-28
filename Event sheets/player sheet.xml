@@ -5,106 +5,6 @@
     <events>
         <event-group description="" sid="371926110200734" title="Player">
             <sub-events>
-                <variable comment="defaults to &apos;idle&apos;" constant="0" name="state" sid="689564431367939" static="1" type="text">idle</variable>
-                <variable comment="defaults to right" constant="0" name="direction" sid="462906768518571" static="1" type="text">right</variable>
-                <event-block sid="523411787782472">
-                    <conditions>
-                        <condition id="0" name="On function" sid="799074950783479" type="Function">
-                            <param id="0" name="Name">&quot;player&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="222785387820683">
-                            <conditions>
-                                <condition id="1" name="Compare parameter" sid="613927433623667" type="Function">
-                                    <param id="0" name="Index">0</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;get&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="879554842639018">
-                                    <conditions>
-                                        <condition id="1" name="Compare parameter" sid="415036280488488" type="Function">
-                                            <param id="0" name="Index">1</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;state&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="1" name="Set return value" sid="254757393469520" type="Function">
-                                            <param id="0" name="Value">state</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="126857701776947">
-                                    <conditions>
-                                        <condition id="1" name="Compare parameter" sid="220300546493466" type="Function">
-                                            <param id="0" name="Index">1</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;direction&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="1" name="Set return value" sid="211908249301681" type="Function">
-                                            <param id="0" name="Value">direction</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block sid="408945957415729">
-                            <conditions>
-                                <condition id="1" name="Compare parameter" sid="143806475678852" type="Function">
-                                    <param id="0" name="Index">0</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;set&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="762658947706607">
-                                    <conditions>
-                                        <condition id="1" name="Compare parameter" sid="369703250135994" type="Function">
-                                            <param id="0" name="Index">1</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;state&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="972188413657071" type="System">
-                                            <param id="0" name="Variable">state</param>
-                                            <param id="1" name="Value">Function.Param(2)</param>
-                                        </action>
-                                        <action id="1" name="Set return value" sid="359138535809495" type="Function">
-                                            <param id="0" name="Value">state</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="806252613157449">
-                                    <conditions>
-                                        <condition id="1" name="Compare parameter" sid="390845628925561" type="Function">
-                                            <param id="0" name="Index">1</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;direction&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="181720269411862" type="System">
-                                            <param id="0" name="Variable">direction</param>
-                                            <param id="1" name="Value">Function.Param(2)</param>
-                                        </action>
-                                        <action id="1" name="Set return value" sid="699130088223759" type="Function">
-                                            <param id="0" name="Value"> direction</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                    </sub-events>
-                </event-block>
                 <event-group description="" sid="175008429992872" title="player Movement">
                     <sub-events>
                         <variable constant="1" name="MAX_SPEED" sid="818172817200878" static="0" type="number">50</variable>
@@ -361,10 +261,6 @@
                                 <condition behavior="8Direction" id="0" name="Is moving" sid="956668980077667" type="player" />
                             </conditions>
                             <actions>
-                                <action id="4" name="Set animation" sid="583618370083858" type="player">
-                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
                                 <action id="-10" name="Set value" sid="659568759239573" type="player">
                                     <param id="0" name="Instance variable">state</param>
                                     <param id="1" name="Value">&quot;walking&quot;</param>
@@ -375,12 +271,7 @@
                                     <conditions>
                                         <condition behavior="Platform" id="0" name="Is moving" sid="927234349054082" type="player" />
                                     </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="538737554267472" type="player">
-                                            <param id="0" name="Animation">&quot;Walk&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                             </sub-events>
                         </event-block>
@@ -389,28 +280,11 @@
                                 <condition behavior="Platform" id="0" name="Is moving" sid="376208453451744" type="player" />
                             </conditions>
                             <actions>
-                                <action id="4" name="Set animation" sid="431087320518649" type="player">
-                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
                                 <action id="-10" name="Set value" sid="890086783099693" type="player">
                                     <param id="0" name="Instance variable">state</param>
                                     <param id="1" name="Value">&quot;walking&quot;</param>
                                 </action>
                             </actions>
-                            <sub-events>
-                                <event-block sid="126211544455700">
-                                    <conditions>
-                                        <condition behavior="8Direction" id="0" name="Is moving" sid="203113365613554" type="player" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="168503769825187" type="player">
-                                            <param id="0" name="Animation">&quot;Walk&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
                         </event-block>
                         <event-block sid="720077962517007">
                             <conditions>
@@ -459,6 +333,17 @@
                             <actions>
                                 <action id="7" name="Set mirrored" sid="166980148607288" type="player">
                                     <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="721192987619093">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="215014680214010" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="992768316834578" type="player">
+                                    <param id="0" name="Animation">Self.state</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>

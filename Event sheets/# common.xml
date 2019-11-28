@@ -24,9 +24,9 @@
                             <param id="0" name="Expression">&quot;dialogue.text&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;test&quot;{###}200</param>
                         </action>
-                        <action id="6" name="Call function" sid="252555657778877" type="JS">
-                            <param id="0" name="Expression">&quot;dialogue.wait&quot;</param>
-                            <param id="1" name="Parameter {n}">1000</param>
+                        <action id="6" name="Call function" sid="260726401369040" type="JS">
+                            <param id="0" name="Expression">&quot;dialogue.clear&quot;</param>
+                            <param id="1" name="Parameter {n}">3000</param>
                         </action>
                         <action id="6" name="Call function" sid="430083399260954" type="JS">
                             <param id="0" name="Expression">&quot;dialogue.newline&quot;</param>
@@ -36,7 +36,7 @@
                             <param id="0" name="Expression">&quot;dialogue.text&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;another test&quot;{###}50</param>
                         </action>
-                        <action id="6" name="Call function" sid="260726401369040" type="JS">
+                        <action id="6" name="Call function" sid="252555657778877" type="JS">
                             <param id="0" name="Expression">&quot;dialogue.clear&quot;</param>
                             <param id="1" name="Parameter {n}">3000</param>
                         </action>
