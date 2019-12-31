@@ -1,0 +1,933 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>MainEvents</name>
+    <events>
+        <variable constant="0" name="HasKey" sid="906129344949312" static="0" type="number">0</variable>
+        <variable constant="0" name="GameStart" sid="835690893264275" static="0" type="number">0</variable>
+        <variable constant="0" name="ePromptOpen" sid="923855324734304" static="0" type="number">0</variable>
+        <variable comment="resets every layout. 60 = 1 second." constant="0" name="Timer" sid="318390051787341" static="0" type="number">0</variable>
+        <event-block sid="395012209782013">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="768797964002124" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="838939535681456" type="System">
+                    <param id="0" name="Variable">Timer</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="196957206666496">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="917658505348903" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="284002308307088" type="System">
+                    <param id="0" name="Variable">Timer</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable constant="0" name="SlotID" sid="373776983701888" static="0" type="number">0</variable>
+        <variable constant="0" name="GUI_CursorPos" sid="737378976367447" static="0" type="number">0</variable>
+        <variable constant="0" name="UIToggle" sid="174133514702099" static="0" type="number">0</variable>
+        <variable comment="put room name here" constant="0" name="Room" sid="121677179608315" static="0" type="text"></variable>
+        <event-group description="" sid="4845602501539677" title="Movement">
+            <sub-events>
+                <event-group description="" sid="173802018389556" title="Control Player">
+                    <sub-events>
+                        <event-block sid="426964010636842">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="534792183431245" type="player_char">
+                                    <param id="0" name="Instance variable">stopMovement</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="119843774773594">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="425153804926902" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                        <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="458919654069698" type="player_char">
+                                            <param id="0" name="Side">1</param>
+                                        </condition>
+                                        <condition id="2" inverted="1" name="Key is down" sid="555136052294379" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="647937844317296" type="player_char">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="624698313617496" type="player_char">
+                                            <param id="0" name="Animation">&quot;Right&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="834296655197225">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="918857521380770" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                        <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="395003598068661" type="player_char">
+                                            <param id="0" name="Side">0</param>
+                                        </condition>
+                                        <condition id="2" inverted="1" name="Key is down" sid="108179747845518" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="348380010311456" type="player_char">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="659597968165218" type="player_char">
+                                            <param id="0" name="Animation">&quot;Left&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="372781421356882">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="414770709443545" type="Keyboard">
+                                            <param id="0" name="Key">32</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="714895123833531" type="player_char">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="141098276062009">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="935328341787534" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="925868769523378" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="260852974422123" type="player_char">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block any="1" sid="735940286345222">
+                                    <conditions>
+                                        <condition id="3" name="On key released" sid="297857351221260" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                        <condition id="3" name="On key released" sid="220679652976071" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="681195964369209" type="System">
+                                            <param id="0" name="Seconds">0.2</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="262377661505639" type="player_char">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="160579602744682" title="GUI">
+            <sub-events>
+                <event-block sid="304884938240799">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="382777467843501" type="Keyboard">
+                            <param id="0" name="Key">9</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="266533012801165" type="System">
+                            <param id="0" name="Variable">UIToggle</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="901349753830655" type="GUI_box">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="617230316663378" type="GUI_Cursor">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="584747887422974" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="509148611935368" type="System">
+                            <param id="0" name="Variable">UIToggle</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="561705486861279">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="675421958567599" type="Keyboard">
+                            <param id="0" name="Key">9</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="575450348707783" type="System">
+                            <param id="0" name="Variable">UIToggle</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="721364556514210" type="GUI_box">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="822204048453059" type="GUI_Cursor">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="396389892445213" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="401437874796613" type="System">
+                            <param id="0" name="Variable">UIToggle</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="145117440247948">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="546329011431357" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="197540870421871" type="GUI_box">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="426283198279148" type="GUI_Cursor">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="170438733224141" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="844763272695062" type="GUI_box">
+                            <param id="0" name="X">23.7</param>
+                            <param id="1" name="Y">11.5</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="336448254744878" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>From 1st inventory row</comment>
+                <comment>Toggle GUI</comment>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="915497543942215" title="Inventory">
+            <sub-events>
+                <event-block sid="115101339135857">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="596738422054705" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="214506564695340" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="723935653661844" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="355266419361837" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="532759755940334" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="979407444697890">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="484440511728045" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="466523332693967" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="500333624782711" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="798187259055948" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="386727787136735" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="365790685269041">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="209599138528234" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="645449377204631" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="547704737881842" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="631205098278767" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="210021980181881" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="577842172981404">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="864191757975330" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="332027252594221" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="861228143882480" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="550139873128638" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="913059627044137" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="237494341141199">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="959032965376587" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="887655112436820" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="155854451745531" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="834632919888487" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="320156231980861" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="601206893216929">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="454642271967512" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="900381103487331" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="284735353640081" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="328917011608388" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="582694746619947" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="337618014189373">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="418960324346440" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="208933718556920" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="615704530036464" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="290958352699737" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="395609601930700" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>From 2nd Inventory row</comment>
+                <event-block sid="391665111460983">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="266605660326440" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="343977118250672" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="100887084703800" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="396378372887609" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="835190711860924" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="607582360889965">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="334695636656496" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="964110472011223" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="481172258148637" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="353264329671954" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="967352141652805" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="274461452883627">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="785600851275538" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="722258599031737" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="953453540431019" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="796227462163574" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="848793494930517" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="851601832251286">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="981648204382151" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="407683450305148" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="808173718804023" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="604974792586745" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="944770924119605" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="623612243576078">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="495279459099145" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="663959666744689" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="959538885362119" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="296371476057811" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="976003740089366" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="350165360978378">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="295690117973820" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="822384602913423" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="939082886643985" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="963960986596667" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="985850963935702" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="650246045100321">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="781648858231706" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="763596582444619" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="946629176273202" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">22</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="285501166961479" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="823639201871416" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="921351334905552">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="407955570722060" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="973819067122156" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="974864558079593" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="623001380908992" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="357133060984388" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">6</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="933519299427898">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="420110583677619" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="350188504158670" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="634307983614352" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="560011857072680" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="920267057676792" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">7</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="963098733553412">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="314612020732244" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="199221129331432" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="715866711789729" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="622882881185525" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="989671009213432" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>From 3rd Incentory Row</comment>
+                <event-block sid="747031360675993">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="474300371133349" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="668980268695544" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="129404560507162" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="137417701022541" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="661328696099092" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">7</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="562812319304556">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="427691990960760" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="129368396418529" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="251296278282483" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="285827760771955" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="185002210044805" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="431291153781821">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="848490449039808" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="527436598792428" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="942191206669026" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="587514263763137" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="782995927235105" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">6</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="947683669598819">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="817735396920090" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="171964061183916" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="682536546368525" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">32.5</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="127849779661534" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="683269902051300" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">7</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="580353206608803">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="652817640489051" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="377999907807952" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="136729448246638" type="GUI_Cursor">
+                            <param id="0" name="X">29</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="619100064884373" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="103896678571620" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="106823449784753">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="484521482891460" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="586897630004476" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="771511552968781" type="GUI_Cursor">
+                            <param id="0" name="X">34</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="360855936368176" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="876238944122787" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="546227198018580">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="795582978374718" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="318255289778008" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="156182778054738" type="GUI_Cursor">
+                            <param id="0" name="X">38.7</param>
+                            <param id="1" name="Y">27</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="990464714664059" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="113157102335796" type="System">
+                            <param id="0" name="Variable">GUI_CursorPos</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="208506344843565">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="629564613067116" type="Keyboard">
+                    <param id="0" name="Key">81</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="879461125475609">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="347099332625243" type="Keyboard">
+                    <param id="0" name="Key">82</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-37" name="Load" sid="740781471932186" type="System">
+                    <param id="0" name="Slot">&quot;mysave&quot;</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="399320359483243" type="System" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="140194882791149" title="Functions">
+            <sub-events>
+                <event-block sid="822944807145307">
+                    <conditions>
+                        <condition id="0" name="On function" sid="460845800158541" type="Function">
+                            <param id="0" name="Name">&quot;createText&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="246829195543676" type="System">
+                            <param id="0" name="Object to create">textBox_txt</param>
+                            <param id="1" name="Layer">4</param>
+                            <param id="2" name="X">20</param>
+                            <param id="3" name="Y">10</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="173888231416735" type="textBox_txt">
+                            <param id="0" name="Width">77</param>
+                            <param id="1" name="Height">22</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="583099785772563" type="System">
+                            <param id="0" name="Object to create">spriteTextName_txt</param>
+                            <param id="1" name="Layer">4</param>
+                            <param id="2" name="X">22</param>
+                            <param id="3" name="Y">12</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="911458873870227" type="System">
+                            <param id="0" name="Object to create">spriteTextContent_txt</param>
+                            <param id="1" name="Layer">4</param>
+                            <param id="2" name="X">22</param>
+                            <param id="3" name="Y">16</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="827030202978240" type="spriteTextContent_txt">
+                            <param id="0" name="Width">80</param>
+                            <param id="1" name="Height">14</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="819047430025987" type="spriteTextName_txt">
+                            <param id="0" name="Width">80</param>
+                            <param id="1" name="Height">8</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="159085024691652" type="spriteTextContent_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="690331322659667" type="spriteTextName_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="738225885437979" type="textBox_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="749726325097641" type="spriteTextContent_txt">
+                            <param id="0" name="Text">Function.Param(1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="423891194236485" type="spriteTextName_txt">
+                            <param id="0" name="Text">Function.Param(0)</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="726526019420382" type="textBox_txt">
+                            <param id="0" name="Opacity">60</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="173516928172346">
+                    <conditions>
+                        <condition id="0" name="On function" sid="486364955781555" type="Function">
+                            <param id="0" name="Name">&quot;deleteText&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="320312047406361" type="spriteTextContent_txt" />
+                        <action id="-9" name="Destroy" sid="925768125783374" type="textBox_txt" />
+                        <action id="-9" name="Destroy" sid="591467871453189" type="spriteTextName_txt" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

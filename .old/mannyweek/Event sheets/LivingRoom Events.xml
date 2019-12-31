@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>LivingRoom Events</name>
+    <events>
+        <variable constant="0" name="bubbleOpen" sid="8934424834623136" static="0" type="number">0</variable>
+        <variable constant="0" name="hasTalkedNelly" sid="5154598650192274" static="0" type="number">0</variable>
+        <variable constant="0" name="hasTalkedCale" sid="8395738725365194" static="0" type="number">0</variable>
+        <variable constant="0" name="hasTalkedRalph" sid="7782166795262828" static="0" type="number">0</variable>
+        <include>MainEvents</include>
+        <event-group description="" sid="45590933521019" title="LivingRoom Doors">
+            <sub-events>
+                <comment>Living room to room</comment>
+                <event-block sid="533606531331156">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="210819644843224" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="232159845218731" type="player_char">
+                            <param id="0" name="Object">door3_fur</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="974018190868113" type="door3_fur">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="102970993035793" type="Audio">
+                            <param id="0" name="Audio file">dooropen</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="249725951768151" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="4121842106063574" type="System">
+                            <param id="0" name="Layout">Hallway Uno</param>
+                        </action>
+                        <action id="0" name="Play" sid="660015220213395" type="Audio">
+                            <param id="0" name="Audio file">doorclose</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="811909406982389" type="door3_fur">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1740980777327089" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Value">&quot;livingroom&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="343590651332021" type="phonetrigger" />
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="200661731752891" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Living room to Stairs</comment>
+                <event-block sid="794489503134144">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="373147419793802" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="492650097893997" type="player_char">
+                            <param id="0" name="Object">door4_fur</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="585671404747814" type="door4_fur">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="909597296743224" type="Audio">
+                            <param id="0" name="Audio file">dooropen</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="789190561587143" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="585569251170509" type="door4_fur">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="491556384469260" type="Audio">
+                            <param id="0" name="Audio file">doorclose</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="556130746977083" type="System">
+                            <param id="0" name="Layout">Staircase</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4606534091227109" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Living room to Bathroom</comment>
+                <event-block sid="307311174055024">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="902632315275199" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="104325033227245" type="player_char">
+                            <param id="0" name="Object">bathroomdoor_fur</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="317050250671953" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="701255284085937" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="348974483488643" type="Audio">
+                            <param id="0" name="Audio file">dooropen</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="341677650024352" type="bathroomdoor_fur">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="210048453886428" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="110854187128623" type="System">
+                            <param id="0" name="Layout">Bathroom</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="417446741533225" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="656418831780596" type="bathroomdoor_fur">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="653183761314439" type="Audio">
+                            <param id="0" name="Audio file">doorclose</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="789640198110231" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4007120809156315" title="LivingRoom Mechanics">
+            <sub-events>
+                <event-block sid="1277991252329278">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="6225694261116458" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="9" name="Is overlapping at offset" sid="4127971002542514" type="player_char">
+                            <param id="0" name="Object">tv_fur</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="9371603960058172" type="tv_fur">
+                            <param id="0" name="Animation">&quot;TVon&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1871215490437616">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="30721622854275" type="System" />
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="8560591477538797">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="5990107091077084" type="System" />
+                        <condition id="-14" name="Compare variable" sid="6110461956142296" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="9791440190951184" type="player_char">
+                            <param id="0" name="X">133</param>
+                            <param id="1" name="Y">66</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3305260079534909">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="8417302650874682" type="System" />
+                        <condition id="-14" name="Compare variable" sid="8834835310621218" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="3546340598602704" type="player_char">
+                            <param id="0" name="X">84</param>
+                            <param id="1" name="Y">45</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Set Scroll to</comment>
+                <event-block sid="8083250419468458">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6926546997477707" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="9860889391115225" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Talk to nelson. Named the boolean wrong because it was originally ralph</comment>
+                <event-block disabled="1" sid="5285651631409403">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="8295919047233606" type="player_char">
+                            <param id="0" name="Object">nel_char</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7275592142121904" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="9048554360485792" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="6300593354289981" type="System">
+                            <param id="0" name="Seconds">0.01</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="5403143614452152" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="5910213609906147" type="Audio">
+                            <param id="0" name="Audio file">exclamation</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="6922344676654959" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Make bong work</comment>
+                <event-block sid="247761720894681">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="583462677391438" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="499738307442162" type="player_char">
+                            <param id="0" name="Object">bong_fur</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2367510324658303" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="4963370290136609" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="9088966276603823" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2586142201442118" type="System">
+                            <param id="0" name="Seconds">1.5</param>
+                        </action>
+                        <action id="0" name="Play" sid="388218543866575" type="Audio">
+                            <param id="0" name="Audio file">bongrip</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="244412440551493" type="bong_bar">
+                            <param id="0" name="Opacity">50</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="152220324215093" type="bong_bar">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="3876464618825415" type="System">
+                            <param id="0" name="Seconds">0.25</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="4738324299941217" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="535372230355223" type="System">
+                            <param id="0" name="Seconds">10</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="949599634143535" type="bong_bar">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="214456988087944" type="bong_bar">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2270110141362389">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="7148064703386391" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Start" sid="633849859936276" type="ralph_char">
+                            <param id="0" name="From">1</param>
+                        </action>
+                        <action id="3" name="Start" sid="7775776459259529" type="nel_char">
+                            <param id="0" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="4714981311982982" type="cale_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="3" name="Start" sid="1778872933760949" type="bong_fur">
+                            <param id="0" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6107542351570021">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="3663800015046929" type="player_char">
+                            <param id="0" name="Object">bong_fur</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="6895033192716391" type="eBubble_ev">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6915243128994187">
+                    <conditions>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="2213644479316803" type="player_char">
+                            <param id="0" name="Object">bong_fur</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="7657803852760455" type="eBubble_ev">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="420475631820091">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="573529461350880" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                        <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="718683958804402" type="player_char">
+                            <param id="0" name="Side">1</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="682691700153963" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="333538249950129" type="player_char">
+                            <param id="0" name="Object">stopcouch_bar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="396176848599597" type="couch_env">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="285307357471562">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="438794634733959" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                        <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="819717818892702" type="player_char">
+                            <param id="0" name="Side">0</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="874269697321834" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="856703161907044" type="player_char">
+                            <param id="0" name="Object">stopcouch_bar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="278445738105985" type="couch_env">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2580932829600916" title="Speech">
+            <sub-events>
+                <comment>Talk to Ralph</comment>
+                <event-block sid="628438140882960">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="8870859630848778" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="590819075711706" type="player_char">
+                            <param id="0" name="Object">ralph_char</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4242993701940632" type="System">
+                            <param id="0" name="Variable">hasTalkedRalph</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="356972135615959" type="System">
+                            <param id="0" name="Variable">hasTalkedRalph</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="560855037259258" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="729344128795276" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="421870331515625" type="Audio">
+                            <param id="0" name="Audio file">speechbox</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="952691790761625" type="textBox_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="753614592593819" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="326536596890969" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="385041407420268" type="textBox_txt">
+                            <param id="0" name="Width">126</param>
+                            <param id="1" name="Height">20</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="422344626062141" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="493485255240582" type="Ralphspeech_">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="510378252149209" type="Ralphspeech_">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3382895288772087" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="731004052450314" type="System">
+                            <param id="0" name="Seconds">5.1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="497618581651788" type="Ralphspeech_">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="2" name="Stop" sid="922790106553503" type="Ralphspeech_" />
+                    </actions>
+                </event-block>
+                <event-block sid="227114646881702">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="514335262025399" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6029829554493345" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1856380724131" type="System">
+                            <param id="0" name="Variable">hasTalkedRalph</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="636834719916908" type="System">
+                            <param id="0" name="Variable">hasTalkedRalph</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="543467362807691" type="Ralphspeech_" />
+                        <action id="9" name="Set scale" sid="311059514091778" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="812561835524069" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="692893734694708" type="textBox_txt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="641577213261704" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6064105500958777" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Talk to Nelly</comment>
+                <event-block sid="1919928176065931">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="3816539363091155" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="7169737909647576" type="player_char">
+                            <param id="0" name="Object">nel_char</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2237090739508201" type="System">
+                            <param id="0" name="Variable">hasTalkedNelly</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1732160614620415" type="System">
+                            <param id="0" name="Variable">hasTalkedNelly</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="8565912353359572" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="1529804696766468" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="8515178594277819" type="Audio">
+                            <param id="0" name="Audio file">speechbox</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="7322827575650806" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="1536270445555513" type="textBox_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2552300055822227" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="4404241254416405" type="textBox_txt">
+                            <param id="0" name="Width">126</param>
+                            <param id="1" name="Height">20</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4261680143999341" type="Nelsonspeech_">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="3429701304639561" type="Nelsonspeech_">
+                            <param id="0" name="Animation">&quot;DRIFT&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6317925123166245" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4473861443005045">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="3525951533084198" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="5031390637942573" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2241648784046758" type="System">
+                            <param id="0" name="Variable">hasTalkedNelly</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="531412623454" type="System">
+                            <param id="0" name="Variable">hasTalkedNelly</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9531632155360142" type="Nelsonspeech_" />
+                        <action id="9" name="Set scale" sid="7699078408995892" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="245762972722726" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="9186854472374429" type="textBox_txt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="5674629244837976" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1659496069168086" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3443893175928043">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="3056390708487365" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="6569288570027024" type="player_char">
+                            <param id="0" name="Object">cale_char</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1547053681063079" type="System">
+                            <param id="0" name="Variable">hasTalkedCale</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4058478873197427" type="System">
+                            <param id="0" name="Variable">hasTalkedCale</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="4797405574835908" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="9532591910680666" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="9661414574469508" type="Audio">
+                            <param id="0" name="Audio file">speechbox</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3325890889771373" type="textBox_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="4356666430646114" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2654611788835578" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="810274781326904" type="textBox_txt">
+                            <param id="0" name="Width">126</param>
+                            <param id="1" name="Height">20</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3655912904174691" type="Calespeech_">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="921346315396965" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="170077269376224" type="Calespeech_">
+                            <param id="0" name="Animation">&quot;open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9735008457995982" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="899355038448598" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="839702025297824" type="Calespeech_">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7806005419450103">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="3363895895825932" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1438950866170306" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6234911827985363" type="System">
+                            <param id="0" name="Variable">hasTalkedCale</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6778496991806664" type="System">
+                            <param id="0" name="Variable">hasTalkedCale</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7737805202844177" type="Calespeech_" />
+                        <action id="9" name="Set scale" sid="5891847263794483" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="5257077208040443" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3425557896146094" type="textBox_txt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="5759437951694571" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2985345399572865" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="546892594247940">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="889951043700296" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="219644963763992" type="lavallamp_fur">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

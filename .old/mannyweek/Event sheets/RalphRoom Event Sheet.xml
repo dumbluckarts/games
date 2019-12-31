@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>RalphRoom Event Sheet</name>
+    <events>
+        <include>Hallway Uno Event Sheet</include>
+        <include>MainEvents</include>
+        <event-block sid="665603407691177">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="580544541888034" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="730264657016735" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="688828149953991" title="RalphRoom Doors">
+            <sub-events>
+                <event-block sid="787365779620498">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="122618487083853" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="461429889462382" type="player_char">
+                            <param id="0" name="Object">RalphDoor</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="709511307569141" type="RalphDoor">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="841762156591385" type="Audio">
+                            <param id="0" name="Audio file">dooropen</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-3</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="768312542741188" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="741701513711345" type="System">
+                            <param id="0" name="Layout">Hallway Uno</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="128004605964434" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="672541594507069" type="RalphDoor">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="702089731768799" type="Audio">
+                            <param id="0" name="Audio file">doorclose</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-3</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="405483811888075" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="215564515885321" title="RalphRoom Speech">
+            <sub-events>
+                <event-block sid="338549843058521">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="800602860426523" type="player_char">
+                            <param id="0" name="Object">ralphroomspeechtrigger1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="337755694177039" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="987156258575414" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="979199072253454" type="Audio">
+                            <param id="0" name="Audio file">speechbox</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="560741410481032" type="textBox_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="236499838070739" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="217928882211576" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="214342966761093" type="textBox_txt">
+                            <param id="0" name="Width">96</param>
+                            <param id="1" name="Height">16</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="775870113594132" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="808396446472136">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="573676530888581" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="506897582485410" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="681564203186779" type="giantSpeech_ev">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="730159861979196" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="894568610828906" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="779081921173084" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="860525721419172" type="textBox_txt" />
+                        <action id="-9" name="Destroy" sid="817813740591300" type="ralphroomspeechtrigger1" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

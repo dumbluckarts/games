@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>BackRoom Events</name>
+    <events>
+        <variable constant="0" name="waterframes" sid="449470598475502" static="0" type="number">0</variable>
+        <include>MainEvents</include>
+        <event-block sid="3650804020631999">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6006823515248021" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="185379346939631" type="player_char">
+                    <param id="0" name="Opacity">50</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="313311020321575" type="System">
+                    <param id="0" name="Layer">7</param>
+                    <param id="1" name="Opacity">0</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="793223823643061" type="System">
+                    <param id="0" name="Layer">9</param>
+                    <param id="1" name="Opacity">500</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="996544951825806" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="7492377188456086" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="1292172259454773" type="observer_backroom">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="2" name="Stop" sid="953210921152349" type="observer_backroom" />
+                <action id="-15" name="Set visible" sid="942310311506522" type="backroomlight">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="714550482599081" type="glitch_fil">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="661992593907547" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="954979125167064" type="System">
+                    <param id="0" name="Layer">7</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="787811455730321" type="System">
+                    <param id="0" name="Layer">9</param>
+                    <param id="1" name="Opacity">98</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="668419988229753" type="System">
+                    <param id="0" name="Layer">12</param>
+                    <param id="1" name="Opacity">50</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="894349671085184" type="System">
+                    <param id="0" name="Layer">7</param>
+                    <param id="1" name="Opacity">25</param>
+                </action>
+                <action id="-16" name="Wait" sid="123012515586277" type="System">
+                    <param id="0" name="Seconds">0.4</param>
+                </action>
+                <action id="-15" name="Set visible" sid="639957913968632" type="backroomlight">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="465079825565270" type="System">
+                    <param id="0" name="Layer">9</param>
+                    <param id="1" name="Opacity">95</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="706681214693033" type="System">
+                    <param id="0" name="Layer">7</param>
+                    <param id="1" name="Opacity">50</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="427808715084362" type="backroomlight">
+                    <param id="0" name="Opacity">30</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="658117915126726" type="System">
+                    <param id="0" name="Layer">12</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Wait" sid="347326206655699" type="System">
+                    <param id="0" name="Seconds">0.4</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="735420502813272" type="System">
+                    <param id="0" name="Layer">7</param>
+                    <param id="1" name="Opacity">75</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="650895790512687" type="backroomlight">
+                    <param id="0" name="Opacity">70</param>
+                </action>
+                <action id="-16" name="Wait" sid="335671624316240" type="System">
+                    <param id="0" name="Seconds">0.4</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="662977343763434" type="System">
+                    <param id="0" name="Layer">7</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="522422112174847" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="874846788884551" type="System">
+                    <param id="0" name="Layer">4</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="129411863430999">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="812904082656664" type="player_char">
+                    <param id="0" name="Object">eyestriggert</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="173542676958842" type="observer_backroom">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="520164090523499">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="220337581264685" type="player_char">
+                    <param id="0" name="Object">eyestriggert2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="257129211361912" type="observer_backroom">
+                    <param id="0" name="Frame number">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="755511896777794">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="363085489637612" type="player_char">
+                    <param id="0" name="Object">eyestriggert4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="917266302555876" type="observer_backroom">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <event-block sid="216922286980038">
+            <conditions>
+                <condition id="2" name="Key is down" sid="240109288500028" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+                <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="191800334069696" type="player_char">
+                    <param id="0" name="Side">1</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="460605371682032" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="648622495889536" type="player_char">
+                    <param id="0" name="Object">pipe_bar</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="376907249885581" type="thingForManny">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="835453184280338">
+            <conditions>
+                <condition id="2" name="Key is down" sid="387482009504788" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="421896778357726" type="player_char">
+                    <param id="0" name="Side">0</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="460182988585851" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="671898807122403" type="player_char">
+                    <param id="0" name="Object">pipe_bar</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="661528150588112" type="thingForManny">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="762756394857778">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="446379181745350" type="Keyboard">
+                    <param id="0" name="Key">69</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="401400593945235" type="player_char">
+                    <param id="0" name="Object">Lip_door_fur</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="951855739974150" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="997958018696320" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="33" name="Stop all" sid="157545143701201" type="Audio" />
+                <action id="-16" name="Wait" sid="318384854029145" type="System">
+                    <param id="0" name="Seconds">1&#x0D;&#x0A;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="574559369370094" type="System">
+                    <param id="0" name="Layout">Bathroom</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

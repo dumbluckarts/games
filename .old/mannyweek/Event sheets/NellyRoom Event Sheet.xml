@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>NellyRoom Event Sheet</name>
+    <events>
+        <include>MainEvents</include>
+        <event-block sid="210668530346051">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="836357702357271" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="446512312503662" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="473692323623483">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="601985879630812" type="Keyboard">
+                    <param id="0" name="Key">69</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="350356450606828" type="player_char">
+                    <param id="0" name="Object">RalphDoor</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="507690851827041" type="RalphDoor">
+                    <param id="0" name="Animation">&quot;Open&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="852078863221920" type="System">
+                    <param id="0" name="Seconds">0.2</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="505511703299056" type="System">
+                    <param id="0" name="Layout">Hallway Uno</param>
+                </action>
+                <action id="0" name="Play" sid="797103947002619" type="Audio">
+                    <param id="0" name="Audio file">doorslam_</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-3</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="897632169985173" type="RalphDoor">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="638987065850635" type="System">
+                    <param id="0" name="Variable">Room</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="574392622305415" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

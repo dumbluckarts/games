@@ -11,7 +11,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">instance</layout>
-        <layout active="1" order="4">Layout 1</layout>
+        <layout order="4">Layout 1</layout>
+        <layout active="1" order="5">Room</layout>
         <event-sheet order="1">player sheet</event-sheet>
         <event-sheet order="2">game controls</event-sheet>
         <event-sheet order="3"># common</event-sheet>
@@ -43,5 +44,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Spr_Flowers/" />
         <folder expanded="1" path="animation-folder/Spr_Tv/" />
         <folder expanded="1" path="animation-folder/Spr_CarpetRed/" />
+        <folder expanded="1" path="animation-folder/playerCollision/" />
+        <folder expanded="1" path="animation-folder/door_Spr/" />
+        <folder expanded="1" path="animation-folder/carpetGreen_Spr/" />
+        <folder expanded="1" path="animation-folder/desk_Spr/" />
+        <folder expanded="1" path="animation-folder/bed_Spr/" />
+        <folder expanded="1" path="animation-folder/bookshelf_Spr/" />
     </folders-expanded>
 </c2uistate>

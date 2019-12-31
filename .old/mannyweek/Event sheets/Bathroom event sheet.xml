@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Bathroom event sheet</name>
+    <events>
+        <include>MainEvents</include>
+        <event-block sid="402316672434657">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="934539109835980" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="664556481244883" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="207350246022208" type="System">
+                    <param id="0" name="Layer">12</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-3" name="Create object" sid="944965230126657" type="System">
+                    <param id="0" name="Object to create">black_bars</param>
+                    <param id="1" name="Layer">13</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="184808653106842" type="black_bars">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-7" name="Set size" sid="138810393328014" type="black_bars">
+                    <param id="0" name="Width">196</param>
+                    <param id="1" name="Height">112</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="311024859232842">
+                    <conditions>
+                        <condition id="-10" name="For" sid="581191368427877" type="System">
+                            <param id="0" name="Name">&quot;fade_black&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="944610351903977" type="System">
+                            <param id="0" name="Seconds">0.05*loopindex</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="124047957003129" type="black_bars">
+                            <param id="0" name="Opacity">black_bars.Opacity -5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="465549448059317">
+            <conditions>
+                <condition id="2" name="Key is down" sid="956778819375131" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="283858398573712" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="444440918737381" type="playerreflection_char">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="561555023716447">
+            <conditions>
+                <condition id="2" name="Key is down" sid="888998674886697" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+                <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="860980496209713" type="player_char">
+                    <param id="0" name="Side">1</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="839958756357879" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="861355341954510" type="playerreflection_char">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="130566760697812">
+            <conditions>
+                <condition id="2" name="Key is down" sid="248146386024104" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="731795255021408" type="player_char">
+                    <param id="0" name="Side">0</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="781140830019861" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="558643215889463" type="playerreflection_char">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="748763098771988" title="Bathroom Doors">
+            <sub-events>
+                <variable constant="0" name="PressE" sid="161014998483307" static="0" type="number">0</variable>
+                <event-block sid="114376862018101">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="163036613476859" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="198889227266086" type="player_char">
+                            <param id="0" name="Object">Bathroomdoorin_fur</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="607469531986675" type="Bathroomdoorin_fur">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="857171828675021" type="Audio">
+                            <param id="0" name="Audio file">dooropen</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="460275085880522" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="653312046101167" type="System">
+                            <param id="0" name="Layout">Hallway testing</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="139230529809437" type="Bathroomdoorin_fur">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="900200985248548" type="Audio">
+                            <param id="0" name="Audio file">doorclose</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="274216931841506" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="471465356249978" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="287303422364658">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="197976036162978" type="System" />
+                <condition id="-14" name="Compare variable" sid="919464294851935" type="System">
+                    <param id="0" name="Variable">Room</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="801380865623947" type="player_char">
+                    <param id="0" name="X">97</param>
+                    <param id="1" name="Y">64.3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="409484485054481">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="741153188638406" type="Keyboard">
+                    <param id="0" name="Key">69</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="819241062880769" type="player_char">
+                    <param id="0" name="Object">bathroomcab_fur</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="244135798070138" type="player_char">
+                    <param id="0" name="Instance variable">stopMovement</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="233902272380283" type="player_char">
+                    <param id="0" name="Animation">&quot;Behind&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Call function" sid="621723425440667" type="Function">
+                    <param id="0" name="Name">Function.Call(&quot;createText&quot;, &quot;Never better.&apos;&quot;)</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-3" name="Set position" sid="370062218603490" type="spriteTextContent_txt">
+                    <param id="0" name="X">56</param>
+                    <param id="1" name="Y">100</param>
+                </action>
+                <action id="-16" name="Wait" sid="986304331299153" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="418492954073414" type="System">
+                    <param id="0" name="Layout">Nightmare_1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Hallway Uno Event Sheet</name>
+    <events>
+        <include>MainEvents</include>
+        <event-block sid="963549377150888">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="393596936964467" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="168623505305692" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-29" name="Set layout effect enabled" sid="190594229448695" type="System">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Pixellate&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="308238553135237" type="Audio">
+                    <param id="0" name="Audio file">washingmachinenoise</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;washingmachine&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="730352091721624" title="Gameplay">
+            <sub-events>
+                <variable constant="0" name="PressE" sid="554420786468242" static="1" type="number">0</variable>
+                <event-group description="" sid="591107881369357" title="Doors">
+                    <sub-events>
+                        <event-block sid="305352194926153">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="990201626272720" type="Keyboard">
+                                    <param id="0" name="Key">69</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="290912819946700" type="player_char">
+                                    <param id="0" name="Object">door_right</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="384077329148723" type="System">
+                                    <param id="0" name="Variable">PressE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="611126972956954">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="939332535818184" type="System">
+                                            <param id="0" name="Variable">HasKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="305941864303382" type="Audio">
+                                            <param id="0" name="Audio file">locked</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="412293529126376" type="player_char">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="445335146255491" type="Function">
+                                            <param id="0" name="Name">Function.Call(&quot;createText&quot;, &quot;Manny : &apos;Where&apos;s my key?&apos;&quot;)</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="214612551690296" type="System">
+                                            <param id="0" name="Seconds">0.001</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="347511350753581" type="System">
+                                            <param id="0" name="Variable">PressE</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="294147819308252" type="player_char">
+                                            <param id="0" name="Instance variable">stopMovement</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="138670848345987">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="845678700159465" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="668321527526200" type="Audio">
+                                            <param id="0" name="Audio file">dooropen</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="974382370381917" type="door_right">
+                                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="456455746824187" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="-25" name="Go to layout (by name)" sid="619369583639736" type="System">
+                                            <param id="0" name="Layout">&quot;LivingRoomRemake&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="362644923865528">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="801333060238924" type="Keyboard">
+                                    <param id="0" name="Key">69</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="547047439905113" type="player_char">
+                                    <param id="0" name="Object">door_left</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="231932000801120" type="System">
+                                    <param id="0" name="Variable">PressE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="859135515938079" type="Audio">
+                                    <param id="0" name="Audio file">dooropen</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="559884867942380" type="door_left">
+                                    <param id="0" name="Animation">&quot;Open&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="428235001028979" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="519440292832049" type="System">
+                                    <param id="0" name="Layout">MannyRoomNew</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="121010639430143">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="195515614232738" type="System">
+                                            <param id="0" name="Variable">GameStart</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="975666069465742" type="System">
+                                            <param id="0" name="Variable">GameStart</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="772722699958776">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="997131995224904" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="789197102771969" type="System">
+                            <param id="0" name="Variable">PressE</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="319535200529488" type="Function">
+                            <param id="0" name="Name">Function.Call(&quot;deleteText&quot;)</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-10" name="Set value" sid="674047612471715" type="player_char">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="315876558380115" type="System">
+                            <param id="0" name="Variable">PressE</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="696891856189331">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="630218314852175" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="301394721118656" type="player_char">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">133</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="105011020275005" type="player_char">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">143</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="491062009117957" type="hallway_door">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="215416810699526" type="System">
+                            <param id="0" name="Object to create">black_bars</param>
+                            <param id="1" name="Layer">5</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="911462264088761" type="black_bars">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="470187193604365" type="black_bars">
+                            <param id="0" name="Width">192</param>
+                            <param id="1" name="Height">72</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="113363884385008" type="player_char">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="700242712743230">
+                            <conditions>
+                                <condition id="-10" name="For" sid="667132615305865" type="System">
+                                    <param id="0" name="Name">&quot;fade_black&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">20</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="223099464432349" type="System">
+                                    <param id="0" name="Seconds">0.05*loopindex</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="768662481622392" type="black_bars">
+                                    <param id="0" name="Opacity">black_bars.Opacity + 5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="521202940280999">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="878598084828378" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="556915708892575" type="System">
+                                    <param id="0" name="Layout">Bathroom</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="335648925079261">
+            <conditions>
+                <condition id="-3" name="On end of layout" sid="656868571286767" type="System" />
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="302970613964767" type="Audio">
+                    <param id="0" name="Tag">&quot;washingmachine&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

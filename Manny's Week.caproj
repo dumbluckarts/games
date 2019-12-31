@@ -22,6 +22,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -68,11 +69,32 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="969129202403471" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.1875" y="0" />
+                                <point x="0.6875" y="0" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                     <animation framecount="2" loop="0" name="walking" pingpong="0" repeatcount="1" repeatto="0" sid="403785194169940" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.1875" y="0" />
+                                <point x="0.6875" y="0" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.1875" y="0" />
+                                <point x="0.6875" y="0" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -104,11 +126,8 @@
         <object-type name="mannyhighres" sid="658216634481117">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="335266544176340" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="335266544176340" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -144,11 +163,72 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="playerCollision" sid="517335236954255">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="907168486610697">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="762544119721025" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="door_Spr" sid="397311392016297">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="345985674493212" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="carpetGreen_Spr" sid="770606418527450">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="244576405268564" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="desk_Spr" sid="501113261503716">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="325863382788200" speed="5">
+                    <frame duration="1" hotspotX="0.695652" hotspotY="0.520833">
+                        <collision-poly>
+                            <point x="0" y="0.1875" />
+                            <point x="1" y="0.1875" />
+                            <point x="1" y="0.8125" />
+                            <point x="0" y="0.8125" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bed_Spr" sid="690754416341381">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="883638606575323" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bookshelf_Spr" sid="160165867716033">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="990742381041144" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>instance.xml</layout>
         <layout>Layout 1.xml</layout>
+        <layout>Room.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>player sheet.xml</event-sheet>

@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Attic Events</name>
+    <events>
+        <include>MainEvents</include>
+        <event-group description="" sid="8012600270453018" title="Attic Mechanics">
+            <sub-events>
+                <event-block sid="5007538448270412">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6694765751788455" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="602682412401559" type="Audio" />
+                    </actions>
+                </event-block>
+                <event-block sid="8765346336632815">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6301826444174764" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="9731967646325512" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1023632730901719">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="237368245983909" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="8073306512441932" type="player_char">
+                            <param id="0" name="Object">rollupArt_fur</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4066111077601132" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="5603037108007212" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="1534113081156898" type="Audio">
+                            <param id="0" name="Audio file">new_item</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="79586346480604" type="player_char">
+                            <param id="0" name="Animation">&quot;getScroll&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4346272032312917" type="rollupArt_fur" />
+                        <action id="-16" name="Wait" sid="6358383867500489" type="System">
+                            <param id="0" name="Seconds">1.5</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="367504059091416" type="glitch_fil">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="645636556654071" type="player_char">
+                            <param id="0" name="Magnitude">20</param>
+                            <param id="1" name="Duration">1</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="560133361672284" type="player_char">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="568827331244127" type="johnathan_char">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="5963565930971023" type="player_char">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="1495198669907304" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="124649375791116" type="glitch_fil">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="468492094312532" type="tvFlash_fil">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="787830049025796" type="tvFlash_fil">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="629939989898682" type="tvFlash_fil">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="559609739295046" type="Audio">
+                            <param id="0" name="Audio file">bwooopremastered</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="361349594986487" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="2" name="Stop" sid="793914068609317" type="tvFlash_fil" />
+                        <action id="5" name="Set frame" sid="124663550400821" type="tvFlash_fil">
+                            <param id="0" name="Frame number">9</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="296404998762846" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="854362044271187" type="bulblight_1">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="997715515823914" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="283348944310015" type="bulblight_1">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="178651163593806" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="445628677086740" type="bulblight_1">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="304581900480802" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="848004212532272" type="bulblight_1">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="291811215056237" type="System">
+                            <param id="0" name="Seconds">0.7</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="193293563841227" type="tvFlash_fil">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="401544487050091" type="tvFlash_fil">
+                            <param id="0" name="Frame number">10</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="610449213000941" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="868979041536537" type="glitch_fil">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="819460106135352" type="tvFlash_fil">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="942513372371096" type="johnathan_char">
+                            <param id="0" name="Frame number">5</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="987800770223962" type="johnathan_char">
+                            <param id="0" name="Animation">&quot;byeguy2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="4817687051617317" type="tvFlash_fil">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="886363215699978" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="987110309484811" type="textBox_txt">
+                            <param id="0" name="X">64</param>
+                            <param id="1" name="Y">72</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="174470152271186" type="textBox_txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="734345231590014" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="863880873760615" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="134272404524644" type="textBox_txt">
+                            <param id="0" name="Width">98</param>
+                            <param id="1" name="Height">18</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="499463187743900" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="342022866322480" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="560912994383215" type="System">
+                            <param id="0" name="Seconds">5.1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="362962897801482">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="714381766662190" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="940611118270938" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="823741781179425" type="textBox_txt">
+                            <param id="0" name="Scale">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="516543606985900" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="881834825926256" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="732560527080840" type="textBox_txt" />
+                        <action id="-9" name="Set value" sid="293088663849275" type="System">
+                            <param id="0" name="Variable">bubbleOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Apply filter and make John visible</comment>
+                <event-block sid="530045986680401">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="353153848370569" type="player_char">
+                            <param id="0" name="Object">glitch_bar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="471041695179917" type="johnathanlight">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Start johns retreat</comment>
+                <event-block sid="9848354501159767">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="6424964543085364" type="rollupArt_fur" />
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="298611050141263">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="4262319667347958" type="player_char">
+                            <param id="0" name="Object">rollupArt_fur</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="6522761566970413" type="System">
+                            <param id="0" name="Object to create">eBubble_ev</param>
+                            <param id="1" name="Layer">5</param>
+                            <param id="2" name="X">111</param>
+                            <param id="3" name="Y">52</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3735770142763882">
+                    <conditions>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="369908563529479" type="player_char">
+                            <param id="0" name="Object">rollupArt_fur</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="3055212703252808" type="eBubble_ev" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1400622590964137" title="Attic Doors">
+            <sub-events>
+                <event-block sid="818497882517079">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="158101514602494" type="player_char">
+                            <param id="0" name="Object">backroom_bar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="887347708784662" type="player_char">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="381210341312534" type="player_char">
+                            <param id="0" name="Instance variable">stopEverything</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="652476859916304" type="player_char">
+                            <param id="0" name="Animation">&quot;Right&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="120338933379220" type="player_char">
+                            <param id="0" name="Acceleration">1200</param>
+                            <param id="1" name="X">168</param>
+                            <param id="2" name="Y">58</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="732709688770543" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Opacity">75</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="954639489576432" type="bulblight_1">
+                            <param id="0" name="Opacity">80</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="576085566971839" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="988711036424628" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Opacity">90</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="238280490938596" type="bulblight_1">
+                            <param id="0" name="Opacity">75</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="932285222439743" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="611203221594114" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Opacity">93</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="729639746953949" type="bulblight_1">
+                            <param id="0" name="Opacity">50</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="278118753324558" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="129430119348109" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Opacity">95</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="173336429699812" type="bulblight_1">
+                            <param id="0" name="Opacity">30</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="928718201547941" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="848055858789650" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Opacity">98</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="917885330555216" type="bulblight_1">
+                            <param id="0" name="Opacity">10</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="774935905960205" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="792718306709848" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Opacity">100</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="184466332832875" type="bulblight_1">
+                            <param id="0" name="Opacity">5</param>
+                        </action>
+                        <action id="0" name="Play" sid="710490216501265" type="Audio">
+                            <param id="0" name="Audio file">backroomsound</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="109326464578416" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="223756585869363" type="System">
+                            <param id="0" name="Layout">&quot;Backroom&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Attic to staircase</comment>
+                <event-block sid="8972077737250621">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="9165536030478111" type="player_char">
+                            <param id="0" name="Object">atticDoor_fur</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="8300810785747028" type="System">
+                            <param id="0" name="Layout">Staircase</param>
+                        </action>
+                        <action id="0" name="Play" sid="9641673975355892" type="Audio">
+                            <param id="0" name="Audio file">housethemethird</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2806386242103512" type="System">
+                            <param id="0" name="Variable">Room</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="556173719535658">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="454144555568273" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="191275741216935" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="900021721188160" type="bulblight_1">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="266114523352226" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="536981862111421" type="bulblight_1">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="499617750295252">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="726225762214695" type="player_char">
+                    <param id="0" name="Object">atticDoor4realthistime_fur</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="608550855341818" type="System">
+                    <param id="0" name="Layout">Staircase</param>
+                </action>
+                <action id="-9" name="Set value" sid="951096377111551" type="System">
+                    <param id="0" name="Variable">Room</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

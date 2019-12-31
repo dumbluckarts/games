@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Canon Event sheet </name>
+    <events>
+        <event-group description="" sid="6317536493963687" title="Startup" />
+        <variable constant="0" name="speed" sid="9804857550379933" static="0" type="number">0</variable>
+        <event-block sid="1712691845786397">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4380971103693394" type="System" />
+            </conditions>
+            <actions>
+                <action id="-20" name="Set layout scale" sid="288109616102043" type="System">
+                    <param id="0" name="Scale">1/2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="939962026407771" type="C_Ball2" />
+            </actions>
+        </event-block>
+        <event-block sid="1282500426786621">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="9950574486263868" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="1389304373238228" type="C_Cannon">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="2097965391552129" type="System">
+                    <param id="0" name="Variable">speed</param>
+                    <param id="1" name="Value">distance(0,0,Mouse.X,Mouse.Y)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="5566194173124757" title="Fire" />
+        <event-block sid="3048294608622435">
+            <conditions>
+                <condition id="0" name="On click" sid="6712852790210666" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9792946606713618" type="System">
+                    <param id="0" name="Variable">speed</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">60</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2376537923684432" type="C_Cannon">
+                    <param id="0" name="Object">C_Ball2</param>
+                    <param id="1" name="Layer">&quot;Ball&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="2408743243025646" type="C_Ball2">
+                    <param id="0" name="Impulse">60/200</param>
+                    <param id="1" name="Angle">C_Cannon.Angle</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6401411791137082">
+            <conditions>
+                <condition id="0" name="On click" sid="253556416685733" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9932350992583241" type="System">
+                    <param id="0" name="Variable">speed</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">60</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="1810065099659801" type="C_Cannon">
+                    <param id="0" name="Object">C_Ball2</param>
+                    <param id="1" name="Layer">&quot;Ball&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="4172359328729284" type="C_Ball2">
+                    <param id="0" name="Impulse">distance(Self.X,Self.Y,Mouse.X,Mouse.Y)/200</param>
+                    <param id="1" name="Angle">C_Cannon.Angle</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Closet Event Sheet</name>
+    <events>
+        <include>MainEvents</include>
+        <event-block sid="553258948822154">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="846859412690100" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" id="1" name="Set enabled" sid="763545103505742" type="player_char">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="821491143643123" type="System">
+                    <param id="0" name="Layer">12</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="33" name="Stop all" sid="362896528670314" type="Audio" />
+            </actions>
+        </event-block>
+        <event-block sid="450553808083488">
+            <conditions>
+                <condition id="2" name="Key is down" sid="499886809586945" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="159242256863933" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="480977772356923" type="playerreflection_char">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="135696958241464">
+            <conditions>
+                <condition id="2" name="Key is down" sid="640907363793199" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+                <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="166494102555654" type="player_char">
+                    <param id="0" name="Side">1</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="167252855954332" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="744792853706332" type="playerreflection_char">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="789913044967570">
+            <conditions>
+                <condition id="2" name="Key is down" sid="722760264382418" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+                <condition behavior="Platform" id="10" inverted="1" name="Is by wall" sid="879281465671947" type="player_char">
+                    <param id="0" name="Side">0</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="704369665376560" type="player_char">
+                    <param id="0" name="Instance variable">stopEverything</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="650405608255092" type="playerreflection_char">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="338943084628831" title="Bathroom Doors2">
+            <sub-events>
+                <event-block sid="983316313060646">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="199496372465047" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="537357185244840" type="player_char">
+                            <param id="0" name="Object">closetdoor</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="700905752258110" type="closetdoor">
+                            <param id="0" name="Animation">&quot;Open&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="637915582534264" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="241031128562199" type="System">
+                            <param id="0" name="Layout">Attic</param>
+                        </action>
+                        <action id="0" name="Play" sid="987886978798292" type="Audio">
+                            <param id="0" name="Audio file">doorslam_</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-3</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="479366103698451" type="closetdoor">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="165285119017755" type="player_char">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
